@@ -1,0 +1,67 @@
+/*
+// XYO.Web Overlay-Scrollbars
+// Copyright (c) 2024-2026 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2024-2026 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+*/
+
+.os-theme-light-or-dark {
+	box-sizing: border-box;
+
+	--os-size: 10px;
+	--os-padding-perpendicular: 2px;
+	--os-padding-axis: 2px;
+	--os-track-border-radius: 10px;
+	--os-handle-border-radius: 10px;
+	--os-handle-interactive-area-offset: 4px;
+
+	/* default is light */
+	--os-handle-bg: rgba(0, 0, 0, 0.44);
+	--os-handle-bg-hover: rgba(0, 0, 0, 0.55);
+	--os-handle-bg-active: rgba(0, 0, 0, 0.66);
+
+	--os-size-on-hover: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+	.os-theme-light-or-dark {
+		--os-handle-bg: rgba(255, 255, 255, 0.44);
+		--os-handle-bg-hover: rgba(255, 255, 255, 0.55);
+		--os-handle-bg-active: rgba(255, 255, 255, 0.66);
+	}
+}
+
+:root:has(input.theme-controller[value=dark]:checked) .os-theme-light-or-dark {
+	--os-handle-bg: rgba(255, 255, 255, 0.44);
+	--os-handle-bg-hover: rgba(255, 255, 255, 0.55);
+	--os-handle-bg-active: rgba(255, 255, 255, 0.66);
+}
+
+:root:has(input.theme-controller[value=light]:checked) .os-theme-light-or-dark {
+	--os-handle-bg: rgba(0, 0, 0, 0.44);
+	--os-handle-bg-hover: rgba(0, 0, 0, 0.55);
+	--os-handle-bg-active: rgba(0, 0, 0, 0.66);
+}
+
+
+.os-theme-dark,
+.os-theme-light {
+	--os-size-on-hover: 12px;
+}
+
+.os-scrollbar-vertical {
+	transition: width 0.25s ease;
+}
+
+.os-scrollbar-vertical:hover {
+	width: var(--os-size-on-hover);
+}
+
+.os-scrollbar-horizontal {
+	transition: height 0.25s ease;
+}
+
+.os-scrollbar-horizontal:hover {
+	height: var(--os-size-on-hover);
+}
